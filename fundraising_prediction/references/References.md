@@ -1,0 +1,3 @@
+- [1] https://www.kaggle.com/datasets/michaelpawlus/fundraising-data?select=data_science_for_fundraising_donor_data.csv
+- [2] http://nandeshwar.info/ds4fundraising/
+- 

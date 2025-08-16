@@ -1,0 +1,86 @@
+Business Understanding{
+    Problems{text: |md
+    - Who will be the major gift donor?
+    - Who is more likely to be a major donor?
+    |
+}
+    Requirements{text: |md
+    - Classification result
+    - Numerical result
+    |
+
+}
+Problems --> Requirements
+
+}
+
+Data Preparation{
+    Raw Data(Simplified version){
+        Constituents: {
+            shape: sql_table
+            # This is defined using the shorthand syntax for labels discussed in the containers section.
+            # But here it's for the type of a constraint.
+            # The id field becomes a map that looks like {type: int; constraint: primary_key}
+            id: int {constraint: primary_key}
+            name: string
+            ConstituentType: enum
+            Email: string
+            Phone: string
+            Status: enum
+        }
+        Revenue: {
+            shape:sql_table
+            TransactionID: int {constraint:primary_key}
+            ConstituentID: int {constraint:foreign_key}
+            Amount: float
+            TransactionDate: timestamp
+            PaymentMethod: enum
+            RevenueType: enum
+            Fund: string  {constraint:foreign_key}
+            Campaign: string {constraint:foreign_key}
+            IsRecurring: boolean
+            Status:enum
+        }
+        Events: {
+            shape:sql_table
+            EventID: int {constraint:primary_key}
+            EventName: string
+            StartDate: timestamp
+            EndDate: timestamp
+            Location: string
+            Capacity: int
+            Status: enum
+            TargetRevenue: float
+        }
+    }
+
+
+    Data Cleaning:{
+        Missing Value
+        Outlier
+        Deduplication
+        Format Unification
+    }
+
+    Data Transformation:{
+        Categorical Encoding
+        Numerical Scaling
+    } 
+    Final Dataset{
+        Trainset
+        Testset
+
+    }
+}
+
+Model{
+    Model Selection:{
+        GBDT
+        Random Forest
+        Support Vector Machine(SVM)   
+    }
+    Model Training:{
+        
+    }
+}
+
